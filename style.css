@@ -1,0 +1,119 @@
+/* 設定header圖片/標題/分數/嘗試次數 */
+
+#header {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+
+#header .title {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+#header .title img {
+  max-width: 3em;
+}
+
+#header .title h2 {
+  padding-left: 0.5em;
+}
+
+#header .score {
+  margin: 0;
+  color: #6c90ac;
+}
+#header .tried {
+  margin-top: 0;
+}
+
+/* 設定整個存放卡片的容器為flex */
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* 設定單獨每張card內容 */
+.card {
+  /* 每張card在卡片海中的位置 */
+  box-sizing: border-box;
+  flex: 7% 1 1;
+  height: 8vw;
+  border: 2px solid #e0e0e0;
+  margin: 2px;
+
+  /* 單張card內元素的位置設定 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* 設定卡片花色大小與位置 */
+.card img {
+  max-width: 30%;
+  align-self: center;
+}
+
+/* 設定卡片數字大小與位置 */
+.card p {
+  margin: 3px;
+  font-size: 10px;
+}
+
+/* 設定下方數字轉180度 */
+.card p:last-child {
+  transform: rotate(180deg);
+}
+
+/* 設定卡牌背面圖案 */
+.back {
+  background: url("https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/9222/ExportedContentImage_00.png");
+  background-size: cover; /*設定背景圖的大小*/
+}
+
+/* 設定配對成功時以背景顏色做區分 */
+.paired {
+  background-color: #dae0e3;
+}
+
+/* 設定wrong的動畫內容 */
+.wrong {
+  animation-name: wrongAnimation; /*動畫名稱*/
+  animation-duration: 0.2s; /*動畫持續時間*/
+  animation-iteration-count: 5; /*執行次數*/
+}
+
+/* 設定動畫關鍵影格 */
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #ffd54f;
+  }
+}
+
+/* 遊戲結束畫面設定 */
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232, 246, 254, 0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+
+.completed > p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.completed > p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #758d9a;
+}
